@@ -1,0 +1,16 @@
+{
+  "name": "nodejsAuth",
+  "description": "nodejsAuth",
+  "main": "app.js",
+  "authors": [
+    "Yassine Gherbi"
+  ],
+  "license": "ISC",
+  "homepage": " ",
+  "dependencies": {
+    "bootstrap": "^3.3.7"
+  },
+  "install": {
+    "path": "public/libs"
+  }
+}
