@@ -31,7 +31,7 @@ app.set('view engine', 'handlebars');
 //app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
 app.use(logger('dev'));
 app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cookieParser());
 
 // Set Static Folder
@@ -43,6 +43,10 @@ app.use(session({
   saveUninitialized: true,
   resave: true
 }));
+
+// Passport init
+app.use(passport.initialize());
+app.use(passport.session());
 
 // In this example, the formParam value is going to get morphed into form body format useful for printing.
 app.use(expressValidator({
@@ -74,15 +78,11 @@ app.use(function (req, res, next) {
   next();
 });
 
-// Passport init
-app.use(passport.initialize());
-app.use(passport.session());
-
 app.use('/', routes);
 app.use('/users', users);
 
 // Set Port
-app.set('port', (process.env.PORT || 3000));
+app.set('port', (process.env.PORT || 8000));
 
 app.listen(app.get('port'), function(){
   console.log('Server started on port '+app.get('port'));
